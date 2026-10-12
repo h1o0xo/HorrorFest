@@ -461,7 +461,24 @@
     </div>
   </div>
 
-   <script>
+   <!-- 1. O formulário com apenas 4 campos -->
+<form id="form-endereco">
+    <label for="N1">N1:</label><br>
+    <input type="text" id="N1" required><br><br>
+
+    <label for="N2">N2:</label><br>
+    <input type="text" id="N2" required><br><br>
+
+    <label for="V1">V1:</label><br>
+    <input type="text" id="V1" required><br><br>
+
+    <label for="C1">C1:</label><br>
+    <input type="text" id="C1" required><br><br>
+
+    <button type="submit">Enviar</button>
+</form>
+
+<script>
     const SUPABASE_URL = 'https://vwzdnoedjxvviphzdprn.supabase.co';
     const SUPABASE_ANON_KEY = 'sb_publishable_Bgg4Jz5z1b7LzkasJfWTMA_rSIP8JXC';
 
@@ -474,20 +491,18 @@
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
 
-            // Pega os dados digitados pelo cliente nos inputs
-            const nome = document.getElementById('nome')?.value || '';
-            const cpf = document.getElementById('cpf')?.value || '';
-            const whatsapp = document.getElementById('whatsapp')?.value || '';
-            const cep = document.getElementById('cep')?.value || '';
-            const rua = document.getElementById('rua')?.value || '';
-            const numero = document.getElementById('numero')?.value || '';
-            const bairro = document.getElementById('bairro')?.value || '';
-            const cidade = document.getElementById('cidade')?.value || '';
+            // Pega exatamente nos IDs dos campos que já tens no teu site
+            const nome = document.getElementById('cliNome')?.value || '';
+            const cpf = document.getElementById('cliCpf')?.value || '';
+            const whatsapp = document.getElementById('cliTel')?.value || '';
+            const cep = document.getElementById('cliCep')?.value || '';
+            const rua = document.getElementById('cliRua')?.value || '';
+            const numero = document.getElementById('cliNumero')?.value || '';
 
-            // Junta as informações de endereço em um texto só para guardar na coluna C1
-            const enderecoCompleto = `Rua: ${rua}, Nº: ${numero}, Bairro: ${bairro}, Cidade: ${cidade}, CEP: ${cep}`;
+            // Junta os dados de endereço num único texto para caber perfeitamente na coluna C1
+            const enderecoCompleto = `CEP: ${cep} | Rua: ${rua}, Nº: ${numero}`;
 
-            // Envia para a sua tabela '1' do Supabase
+            // Envia para a tabela '1' do Supabase nas 4 colunas exatas
             const { data, error } = await supabase
                 .from('1')
                 .insert([
@@ -501,7 +516,7 @@
 
             if (error) {
                 console.error('Erro ao salvar no Supabase:', error);
-                alert('Erro ao enviar o endereço: ' + error.message);
+                alert('Erro ao enviar: ' + error.message);
             } else {
                 alert('Endereço enviado com sucesso!');
                 form.reset();
