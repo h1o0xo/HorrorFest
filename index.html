@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
+
+  <title>Halloween - Fantasia Pânico Ghostface Completa Kit Túnica, Máscara e Faca</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Estilos Principais -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="ph-header">
+    <div class="ph-inner">
+      <button class="ph-btn" aria-label="Voltar" onclick="window.history.back()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+      </button>
+      <div class="ph-right">
+        <a href="pagamento.html" class="ph-btn" aria-label="Carrinho">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.7 13.4a2 2 0 002 1.6h9.7a2 2 0 002-1.6L23 6H6"></path>
+          </svg>
+        </a>
+        <button class="ph-btn" aria-label="Mais opções" id="btnVisitar">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="1"></circle>
+            <circle cx="19" cy="12" r="1"></circle>
+            <circle cx="5" cy="12" r="1"></circle>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- CARROSSEL DO PRODUTO -->
+    <section class="car" id="carousel">
+      <div class="car-track no-scrollbar" id="carTrack">
+        <div class="row">
+          <!-- 1. Imagem Principal -->
+          <div class="car-slide">
+            <div class="car-slide-inner">
+              <img src="https://i.ibb.co/JWT0WmjM/G1.webp" alt="Fantasia Pânico Ghostface Completa - Foto 1" loading="eager" fetchpriority="high">
+            </div>
+          </div>
+          <!-- 2. Vídeo do Produto (anexado logo após a 1ª imagem) -->
+          <div class="car-slide">
+            <div class="car-slide-inner">
+              <video src="https://www.image2url.com/r2/default/videos/1791747344148-a90274b7-2cfd-4185-8d9f-eda14d1b080f.mp4" playsinline controls loop muted preload="metadata" poster="https://i.ibb.co/JWT0WmjM/G1.webp"></video>
+            </div>
+          </div>
+          <!-- 3. Imagem 3 -->
+          <div class="car-slide">
+            <div class="car-slide-inner">
+              <img src="https://i.ibb.co/rKfgnwvp/G3.webp" alt="Fantasia Pânico Ghostface - Foto 2" loading="lazy">
+            </div>
+          </div>
+          <!-- 4. Imagem 4 -->
+          <div class="car-slide">
+            <div class="car-slide-inner">
+              <img src="https://i.ibb.co/6ck61YRW/G4.webp" alt="Fantasia Pânico Ghostface - Foto 3" loading="lazy">
+            </div>
+          </div>
+          <!-- 5. Imagem 5 -->
+          <div class="car-slide">
+            <div class="car-slide-inner">
+              <img src="https://i.ibb.co/Zz07nBCm/G5.webp" alt="Fantasia Pânico Ghostface - Foto 4" loading="lazy">
+            </div>
+          </div>
+          <!-- 6. Imagem 6 -->
+          <div class="car-slide">
+            <div class="car-slide-inner">
+              <img src="https://i.ibb.co/7tjXWd2k/G6.webp" alt="Fantasia Pânico Ghostface - Foto 5" loading="lazy">
+            </div>
+          </div>
+          <!-- 7. Imagem 7 -->
+          <div class="car-slide">
+            <div class="car-slide-inner">
+              <img src="https://i.ibb.co/nMmMZj3S/G7.webp" alt="Fantasia Pânico Ghostface - Foto 6" loading="lazy">
+            </div>
+          </div>
+          <!-- 8. Imagem 8 -->
+          <div class="car-slide">
+            <div class="car-slide-inner">
+              <img src="https://i.ibb.co/cXwcS07z/G8.webp" alt="Fantasia Pânico Ghostface - Foto 7" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="car-counter"><span id="carCur">1</span>/<span id="carTotal">8</span></div>
+      <button class="car-arrow left hidden" id="carPrev" aria-label="Anterior">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <button class="car-arrow right" id="carNext" aria-label="Próxima">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </section>
+
+    <!-- PRICE BANNER -->
+    <section class="pb">
+      <div class="pb-left">
+        <div class="pb-row">
+          <span class="pb-discount">-17%</span>
+          <span class="pb-amount">R$ 149,31</span>
+        </div>
+        <div class="pb-original">R$ 179,90</div>
+      </div>
+      <div class="pb-right">
+        <div class="pb-flash">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+          <span>Oferta Halloween</span>
+        </div>
+        <div class="pb-time">Termina em <strong>00:<span id="mm">08</span>:<span id="ss">27</span></strong></div>
+      </div>
+    </section>
+
+    <!-- PRODUCT INFO -->
+    <section class="pi">
+      <button class="pi-economize" type="button" onclick="window.location.href='pagamento.html'">
+        <span class="pi-economize-left">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 9h20v6H2z"></path>
+            <path d="M2 13h6v3H2zm14 0h6v3h-6z"></path>
+          </svg>
+          <span>Economize R$ 30,59 no Pix</span>
+        </span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+
+      <div class="pi-badges">
+        <span class="pi-badge maes" style="background:#fff3cd; color:#856404;">🎃 ESPECIAL HALLOWEEN 2026</span>
+        <span class="pi-badge promo" id="promoDate">🔥 PROMO HOJE</span>
+      </div>
+
+      <div class="pi-title-row">
+        <div class="pi-title-left">
+          <span class="pi-discount-chip">17%</span>
+          <h1 class="pi-title">Fantasia Pânico Ghostface Completa Adulto - Kit com Túnica, Máscara, Faca</h1>
+        </div>
+        <button class="pi-bookmark" aria-label="Salvar" onclick="alert('Fantasia salva nos seus favoritos!')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div class="pi-stats">
+        <span class="pi-rating">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+          4.9
+        </span>
+        <span class="pi-reviews">3.8 mil avaliações</span>
+        <span class="pi-sold">• +100 vendidos</span>
+      </div>
+
+      <div class="pi-stock">
+        <span class="pi-stock-dot"></span>
+        Poucas unidades em estoque para o Halloween
+      </div>
+
+      <div class="pi-divider"></div>
+
+      <div class="pi-ship">
+        <div>
+          <div class="pi-ship-icons">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="3" width="15" height="13"></rect>
+              <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+              <circle cx="5.5" cy="18.5" r="2.5"></circle>
+              <circle cx="18.5" cy="18.5" r="2.5"></circle>
+            </svg>
+            <span class="pi-ship-tag">Frete Grátis</span>
+            <span id="shipDate">Envio Rápido para o Halloween</span>
+          </div>
+          <div class="pi-ship-fee">Taxa de envio: <span style="text-decoration: line-through;">R$ 19,90</span> (Grátis hoje)</div>
+        </div>
+        <button class="ph-btn" aria-label="Detalhes de entrega">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- CUSTOMER PROTECTION -->
+    <section class="cp">
+      <div class="cp-head">
+        <div class="cp-head-l">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5z"></path>
+          </svg>
+          Proteção do cliente
+        </div>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </div>
+      <div class="cp-grid">
+        <div class="cp-item"><span>✓</span><span>Devolução gratuita</span></div>
+        <div class="cp-item"><span>✓</span><span>Garantia de 30 dias</span></div>
+        <div class="cp-item"><span>✓</span><span>Pagamento seguro</span></div>
+        <div class="cp-item"><span>✓</span><span>Pronta Entrega</span></div>
+      </div>
+    </section>
+
+    <div class="sep"></div>
+
+    <!-- REVIEWS -->
+    <section class="rv">
+      <div class="rv-head">
+        <h2 class="rv-title">Avaliações dos clientes <span class="rv-title-count">(3,8 mil)</span></h2>
+        <button class="rv-vermais" type="button" id="btnReviewMore">
+          Ver mais
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+      <div class="rv-rating-row">
+        <span class="rv-rating">4.9</span>
+        <span class="rv-rating-of">/ 5</span>
+        <div class="rv-stars-row">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </div>
+      </div>
+
+      <!-- Avaliação 1 -->
+      <article class="rv-item">
+        <div class="rv-head-row">
+          <img class="rv-avatar" src="https://i.ibb.co/wZBH44X9/p11.webp" alt="Isabela N." onerror="this.outerHTML='<div class=\'rv-avatar-fallback\'>IN</div>'">
+          <div class="rv-name">Isabela N.</div>
+          <span class="rv-confirmed">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Compra confirmada
+          </span>
+        </div>
+        <div class="rv-stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </div>
+        <p class="rv-text">A fantasia é incrível! Chegou super rápido antes do Halloween. A túnica tem 170cm, cobre perfeitamente e o capuz é bem estiloso. A máscara tem ótimo acabamento!</p>
+        <div class="rv-photos">
+          <img class="rv-photo" alt="Foto avaliação Ghostface 1" src="https://i.ibb.co/8nSKtk7F/D-NQ-NP-2-X-717580-MLA98290298527-112025-F.webp">
+          <img class="rv-photo" alt="Foto avaliação Ghostface 2" src="https://i.ibb.co/YFhfYR4H/D-NQ-NP-2-X-994772-MLA95985455806-102025-F.webp">
+        </div>
+      </article>
+
+      <!-- Avaliação 2 -->
+      <article class="rv-item">
+        <div class="rv-head-row">
+          <img class="rv-avatar" src="https://i.ibb.co/wFxqT6tT/p14.webp" alt="Camila S." onerror="this.outerHTML='<div class=\'rv-avatar-fallback\'>CS</div>'">
+          <div class="rv-name">Camila S.</div>
+          <span class="rv-confirmed">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Compra confirmada
+          </span>
+        </div>
+        <div class="rv-stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </div>
+        <p class="rv-text">A faca de brinquedo com detalhe de sangue impresso dá todo o diferencial, fica muito realista nas fotos da festa temática sem perigo algum. Amei!</p>
+        <div class="rv-photos">
+          <img class="rv-photo" alt="Foto avaliação Ghostface 3" src="https://i.ibb.co/TxdBGRqT/D-NQ-NP-2-X-967709-MLA96622587003-102025-F.webp">
+          <img class="rv-photo" alt="Foto avaliação Ghostface 4" src="https://i.ibb.co/svP8Nv2h/D-NQ-NP-2-X-964639-MLA96404620737-102025-F.webp">
+        </div>
+      </article>
+
+      <!-- Avaliação 3 -->
+      <article class="rv-item">
+        <div class="rv-head-row">
+          <img class="rv-avatar" src="https://i.ibb.co/6J1PvvRr/p5.webp" alt="Fernanda M." onerror="this.outerHTML='<div class=\'rv-avatar-fallback\'>FM</div>'">
+          <div class="rv-name">Fernanda M.</div>
+          <span class="rv-confirmed">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Compra confirmada
+          </span>
+        </div>
+        <div class="rv-stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </div>
+        <p class="rv-text">Material 100% poliéster bem levinho e não esquenta. O elástico da máscara ajusta super bem. Recomendo demais!</p>
+        <div class="rv-photos">
+          <img class="rv-photo" alt="Foto avaliação Ghostface 5" src="https://i.ibb.co/PsW2zjvb/D-NQ-NP-2-X-847014-MLA93521517944-102025-F.webp">
+          <img class="rv-photo" alt="Foto avaliação Ghostface 6" src="https://i.ibb.co/MFwk08H/D-NQ-NP-2-X-890955-MLA96622696269-102025-F.webp">
+          <img class="rv-photo" alt="Foto avaliação Ghostface 7" src="https://i.ibb.co/nspMG90D/D-NQ-NP-2-X-993130-MLA96399480122-102025-F.webp">
+        </div>
+      </article>
+    </section>
+
+    <div class="sep"></div>
+
+    <!-- STORE INFO -->
+    <section class="si">
+      <div class="si-row">
+        <div class="si-left">
+          <img class="si-logo" src="https://i.ibb.co/7dwsVkpm/Gemini-Generated-Image-r9wyq5r9wyq5r9wy.jpg" alt="Logo Horror Fest Oficial" onerror="this.outerHTML='<div class=\'si-logo-fallback\' style=\'background:#111;\'>👻</div>'">
+          <div class="si-info">
+            <div class="si-name-row">
+              <span class="si-name">Horror Fest Oficial</span>
+              <svg width="17" height="17" viewBox="0 0 48 48">
+                <polygon fill="hsl(211, 90%, 56%)" points="29.62,3 33.053,8.308 39.367,8.624 39.686,14.937 44.997,18.367 42.116,23.995 45,29.62 39.692,33.053 39.376,39.367 33.063,39.686 29.633,44.997 24.005,42.116 18.38,45 14.947,39.692 8.633,39.376 8.314,33.063 3.003,29.633 5.884,24.005 3,18.38 8.308,14.947 8.624,8.633 14.937,8.314 18.367,3.003 23.995,5.884"></polygon>
+                <polygon fill="#fff" points="21.396,31.255 14.899,24.76 17.021,22.639 21.428,27.046 30.996,17.772 33.084,19.926"></polygon>
+              </svg>
+            </div>
+            <div class="si-sold">128.4K vendido(s)</div>
+          </div>
+        </div>
+        <button class="si-visitar" type="button" id="btnVisitar">Visitar</button>
+      </div>
+    </section>
+
+    <div class="sep"></div>
+
+    <!-- PRODUCT DETAILS -->
+    <section class="pd">
+      <h2 class="pd-title">Sobre este produto</h2>
+
+      <div class="pd-section-label">Características do produto</div>
+      <div class="pd-specs">
+        <div class="pd-spec-key">Marca</div>
+        <div class="pd-spec-val">Slasher Assassino Filme Terror</div>
+        
+        <div class="pd-spec-key">Personagem</div>
+        <div class="pd-spec-val">Scream Cult Killer Morte Caveira</div>
+        
+        <div class="pd-spec-key">Gênero</div>
+        <div class="pd-spec-val">Sem gênero</div>
+        
+        <div class="pd-spec-key">Material principal</div>
+        <div class="pd-spec-val">Poliéster</div>
+        
+        <div class="pd-spec-key">Composição</div>
+        <div class="pd-spec-val">100% Poliéster</div>
+        
+        <div class="pd-spec-key">Qtd de fantasias</div>
+        <div class="pd-spec-val">1</div>
+        
+        <div class="pd-spec-key">Acessórios</div>
+        <div class="pd-spec-val">Faca, Máscara, Túnica</div>
+        
+        <div class="pd-spec-key">Tamanho</div>
+        <div class="pd-spec-val">Adulto Único (170cm)</div>
+        
+        <div class="pd-spec-key">Garantia</div>
+        <div class="pd-spec-val">30 dias</div>
+      </div>
+
+      <div class="pd-divider"></div>
+
+      <div class="pd-section-label">Descrição do Produto</div>
+      <div class="pd-desc-text">
+        <p><strong>Fantasia Pânico Scream Completa Adulto - Kit com Túnica, Máscara, Faca</strong></p>
+        <p style="margin-top:6px;">Transforme-se no icônico Ghostface com essa fantasia completa do Pânico! Perfeita para festas de Halloween, eventos temáticos, cosplay ou para fãs dos clássicos do terror.</p>
+        
+        <h3>ITENS INCLUSOS</h3>
+        <div class="pd-bullet">
+          <span class="dot">•</span>
+          <span><strong>Túnica Longa (170cm):</strong> Feita em 100% Poliéster, leve e confortável, com capuz e mangas largas, garantindo o visual sombrio do personagem.</span>
+        </div>
+        <div class="pd-bullet">
+          <span class="dot">•</span>
+          <span><strong>Máscara do Ghostface:</strong> Confeccionada em plástico resistente, com elástico ajustável para encaixe perfeito. Fiel ao visual original dos filmes Scream.</span>
+        </div>
+        <div class="pd-bullet">
+          <span class="dot">•</span>
+          <span><strong>Faca de Brinquedo com Efeito de Sangue Impresso:</strong> Faca plástica com detalhe de sangue impresso na lâmina, criando um visual impactante e assustador, sem riscos para crianças.</span>
+        </div>
+
+        <h3>ESPECIFICAÇÕES ADICIONAIS</h3>
+        <div class="pd-bullet"><span class="dot">•</span><span><strong>Tamanho:</strong> Adulto Único</span></div>
+        <div class="pd-bullet"><span class="dot">•</span><span><strong>Estado:</strong> Produto novo e embalado</span></div>
+        <div class="pd-bullet"><span class="dot">•</span><span><strong>Disponibilidade:</strong> Pronta entrega imediata</span></div>
+        <div class="pd-bullet"><span class="dot">•</span><span><strong>Ocasiões:</strong> Ideal para Halloween, festas à fantasia e eventos de terror</span></div>
+
+        <p style="margin-top:12px; font-weight:600;">Garanta já a sua fantasia e entre no clima do horror com estilo!</p>
+        <p style="margin-top:8px;"><strong>Garantia do vendedor:</strong> 30 dias</p>
+      </div>
+
+      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
+        <img src="https://i.ibb.co/6ck61YRW/G4.webp" alt="Fantasia Pânico Ghostface Detalhes" style="width:100%; border-radius:8px; border: 1px solid #eee;">
+        <img src="https://i.ibb.co/Zz07nBCm/G5.webp" alt="Fantasia Pânico Ghostface Versatilidade" style="width:100%; border-radius:8px; border: 1px solid #eee;">
+      </div>
+    </section>
+
+    <div class="pd-terms">
+      <button class="pd-terms-btn" type="button">Termos de Uso &amp; Políticas ▼</button>
+    </div>
+
+  </main>
+
+  <!-- BOTTOM BAR (Barra Fixa de Compra) -->
+  <nav class="bb">
+    <div class="bb-inner">
+      <button class="bb-icon" aria-label="Loja" type="button" id="btnLoja" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <span>Loja</span>
+      </button>
+
+      <button class="bb-icon" id="btnChat" aria-label="Chat" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"></path>
+        </svg>
+        <span>Chat</span>
+      </button>
+
+      <!-- Botão Adicionar ao Carrinho -> Leva para a página de compra -->
+      <a class="bb-cart" href="pagamento.html">Adicionar ao carrinho</a>
+
+      <!-- Botão Comprar Agora -> Leva para a página de compra -->
+      <a class="bb-buy" href="pagamento.html">Comprar Agora</a>
+    </div>
+  </nav>
+
+  <!-- Script Principal da Página -->
+  <script src="js/main.js"></script>
+</body>
+</html>
