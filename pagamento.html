@@ -35,7 +35,7 @@
     <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
       <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
     </svg>
-    <span>Oferta de Halloween 67reservada para você por: <span class="co-timer" id="checkoutTimer">14:59</span></span>
+    <span>Oferta de Halloween 87reservada para você por: <span class="co-timer" id="checkoutTimer">14:59</span></span>
   </div>
 
   <form id="checkoutForm" novalidate>
@@ -464,42 +464,49 @@
 <script>
     const SUPABASE_URL = 'https://vwzdnoedjxvviphzdprn.supabase.co';
     const SUPABASE_ANON_KEY = 'sb_publishable_Bgg4Jz5z1b7LzkasJfWTMA_rSIP8JXC';
-
-    // Usamos 'sb' em vez de 'supabase' para evitar o conflito de nomes
     const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     document.addEventListener('DOMContentLoaded', () => {
-        const form = document.getElementById('checkoutForm');
-        if (!form) return;
+        // Procura por qualquer botão de finalizar/gerar pix no site
+        const botoes = document.querySelectorAll('button, input[type="button"], input[type="submit"]');
 
-        form.addEventListener('submit', async function(e) {
-            // Recolhe os dados dos campos do teu checkout
-            const nome = document.getElementById('cliNome')?.value || '';
-            const cpf = document.getElementById('cliCpf')?.value || '';
-            const tel = document.getElementById('cliTel')?.value || '';
-            const cep = document.getElementById('cliCep')?.value || '';
-            const rua = document.getElementById('cliRua')?.value || '';
-            const numero = document.getElementById('cliNumero')?.value || '';
+        botoes.forEach(btn => {
+            const textoBotao = btn.textContent || btn.value || '';
+            // Identifica o botão de conclusão do checkout
+            if (textoBotao.includes('PIX') || textoBotao.includes('Finalizar') || textoBotao.includes('Gerar') || textoBotao.includes('Continuar')) {
+                btn.addEventListener('click', async () => {
+                    console.log("Botão de checkout clicado, a recolher dados...");
 
-            // Junta a morada na coluna C1
-            const enderecoCompleto = `CEP: ${cep} | Rua: ${rua}, Nº: ${numero}`;
+                    // Recolhe os valores dos campos
+                    const nome = document.getElementById('cliNome')?.value || '';
+                    const cpf = document.getElementById('cliCpf')?.value || '';
+                    const tel = document.getElementById('cliTel')?.value || '';
+                    const cep = document.getElementById('cliCep')?.value || '';
+                    const rua = document.getElementById('cliRua')?.value || '';
+                    const numero = document.getElementById('cliNumero')?.value || '';
 
-            // Envia para a tabela '1' do Supabase usando a variável 'sb'
-            const { data, error } = await sb
-                .from('1')
-                .insert([
-                    { 
-                        N1: nome, 
-                        N2: cpf, 
-                        V1: tel, 
-                        C1: enderecoCompleto 
+                    const enderecoCompleto = `CEP: ${cep} | Rua: ${rua}, Nº: ${numero}`;
+
+                    console.log("Dados a enviar:", { nome, cpf, tel, enderecoCompleto });
+
+                    // Envia para o Supabase
+                    const { data, error } = await sb
+                        .from('1')
+                        .insert([
+                            { 
+                                N1: nome, 
+                                N2: cpf, 
+                                V1: tel, 
+                                C1: enderecoCompleto 
+                            }
+                        ]);
+
+                    if (error) {
+                        console.error('Erro ao salvar no Supabase:', error);
+                    } else {
+                        console.log('Sucesso! Dados enviados para o Supabase:', data);
                     }
-                ]);
-
-            if (error) {
-                console.error('Erro ao salvar no Supabase:', error);
-            } else {
-                console.log('Dados salvos com sucesso!');
+                });
             }
         });
     });
