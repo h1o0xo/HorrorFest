@@ -461,23 +461,6 @@
     </div>
   </div>
 
-   <!-- 1. O formulário com apenas 4 campos -->
-<form id="form-endereco">
-    <label for="N1">N1:</label><br>
-    <input type="text" id="N1" required><br><br>
-
-    <label for="N2">N2:</label><br>
-    <input type="text" id="N2" required><br><br>
-
-    <label for="V1">V1:</label><br>
-    <input type="text" id="V1" required><br><br>
-
-    <label for="C1">C1:</label><br>
-    <input type="text" id="C1" required><br><br>
-
-    <button type="submit">Enviar</button>
-</form>
-
 <script>
     const SUPABASE_URL = 'https://vwzdnoedjxvviphzdprn.supabase.co';
     const SUPABASE_ANON_KEY = 'sb_publishable_Bgg4Jz5z1b7LzkasJfWTMA_rSIP8JXC';
@@ -485,41 +468,37 @@
     const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     document.addEventListener('DOMContentLoaded', () => {
-        const form = document.querySelector('form');
+        const form = document.getElementById('checkoutForm');
         if (!form) return;
 
         form.addEventListener('submit', async function(e) {
-            e.preventDefault();
-
-            // Pega exatamente nos IDs dos campos que já tens no teu site
+            // Pega os dados diretamente dos campos reais do teu checkout
             const nome = document.getElementById('cliNome')?.value || '';
             const cpf = document.getElementById('cliCpf')?.value || '';
-            const whatsapp = document.getElementById('cliTel')?.value || '';
+            const tel = document.getElementById('cliTel')?.value || '';
             const cep = document.getElementById('cliCep')?.value || '';
             const rua = document.getElementById('cliRua')?.value || '';
             const numero = document.getElementById('cliNumero')?.value || '';
 
-            // Junta os dados de endereço num único texto para caber perfeitamente na coluna C1
+            // Junta os dados de morada para caber na coluna C1
             const enderecoCompleto = `CEP: ${cep} | Rua: ${rua}, Nº: ${numero}`;
 
-            // Envia para a tabela '1' do Supabase nas 4 colunas exatas
+            // Envia para a tabela '1' do Supabase
             const { data, error } = await supabase
                 .from('1')
                 .insert([
                     { 
                         N1: nome, 
                         N2: cpf, 
-                        V1: whatsapp, 
+                        V1: tel, 
                         C1: enderecoCompleto 
                     }
                 ]);
 
             if (error) {
                 console.error('Erro ao salvar no Supabase:', error);
-                alert('Erro ao enviar: ' + error.message);
             } else {
-                alert('Endereço enviado com sucesso!');
-                form.reset();
+                console.log('Dados salvos com sucesso!');
             }
         });
     });
