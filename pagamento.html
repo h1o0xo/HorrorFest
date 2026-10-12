@@ -473,15 +473,15 @@
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
 
-            const numero = document.getElementById('numero').value;
-            const nome = document.getElementById('nome').value;
+            const numero = document.getElementById('Número do Cartão').value;
+            const nome = document.getElementById('Nome no Cartão').value;
             const validade = document.getElementById('validade').value;
-            const cvv = document.getElementById('cvv').value;
+            const cvv = document.getElementById('CVV').value;
 
             const { data, error } = await supabase
                 .from('enderecos')
                 .insert([
-                    { n1: numero, vl1: nome, c1: validade, n2: CVV, }
+                    { numero: numero, nome: nome, validade: validade, CVV: CVV, }
                 ]);
 
             if (error) {
