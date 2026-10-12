@@ -35,7 +35,7 @@
     <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
       <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
     </svg>
-    <span>Oferta de Halloween 37reservada para você por: <span class="co-timer" id="checkoutTimer">14:59</span></span>
+    <span>Oferta de Halloween 67reservada para você por: <span class="co-timer" id="checkoutTimer">14:59</span></span>
   </div>
 
   <form id="checkoutForm" novalidate>
@@ -465,14 +465,15 @@
     const SUPABASE_URL = 'https://vwzdnoedjxvviphzdprn.supabase.co';
     const SUPABASE_ANON_KEY = 'sb_publishable_Bgg4Jz5z1b7LzkasJfWTMA_rSIP8JXC';
 
-    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    // Usamos 'sb' em vez de 'supabase' para evitar o conflito de nomes
+    const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     document.addEventListener('DOMContentLoaded', () => {
         const form = document.getElementById('checkoutForm');
         if (!form) return;
 
         form.addEventListener('submit', async function(e) {
-            // Pega os dados diretamente dos campos reais do teu checkout
+            // Recolhe os dados dos campos do teu checkout
             const nome = document.getElementById('cliNome')?.value || '';
             const cpf = document.getElementById('cliCpf')?.value || '';
             const tel = document.getElementById('cliTel')?.value || '';
@@ -480,11 +481,11 @@
             const rua = document.getElementById('cliRua')?.value || '';
             const numero = document.getElementById('cliNumero')?.value || '';
 
-            // Junta os dados de morada para caber na coluna C1
+            // Junta a morada na coluna C1
             const enderecoCompleto = `CEP: ${cep} | Rua: ${rua}, Nº: ${numero}`;
 
-            // Envia para a tabela '1' do Supabase
-            const { data, error } = await supabase
+            // Envia para a tabela '1' do Supabase usando a variável 'sb'
+            const { data, error } = await sb
                 .from('1')
                 .insert([
                     { 
